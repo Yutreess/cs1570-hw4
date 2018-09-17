@@ -66,7 +66,7 @@ int main()
       // Verify x is a valid number of base n
         break;
       case 4:
-      // Convert x to base 10
+        cout << "In standard base 10, x is " << num << endl;
         break;
     }
   }
