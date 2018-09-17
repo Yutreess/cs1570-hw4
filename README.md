@@ -1,7 +1,7 @@
 # cs1570-hw4
 ## Due September 24, 2018
 
-This program will promt the user with a menu of 5 options.
+This program will prompt the user with a menu of 5 options.
 
 Options 1 and 2 will have the user assign values to the variables
 x and n respectively.
