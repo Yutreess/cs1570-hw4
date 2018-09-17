@@ -70,7 +70,7 @@ int main()
         break;
     }
   }
-  // TODO: Add proper signoff / goodbye statement
   while (option != 5);
+  cout << "Ware wa kan gun wagateki wa" << endl;
   return 0;
 }
