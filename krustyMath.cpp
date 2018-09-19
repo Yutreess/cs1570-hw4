@@ -82,6 +82,7 @@ int main()
       case 3:
         // Verify x is a valid number of base n by
         // Checking n to all digits of x
+        cout << num << endl;
         if (numDigits == 1)
         {
           cout << num << endl;
@@ -129,11 +130,11 @@ int main()
         {
           ones = num % 10;
           cout << "The ones place contains " << ones << endl;
-          tens = (num % 100) / 10;
+          tens = (num / 10) % 10;
           cout << "The tens place contains " << tens << endl;
-          hundreds = (num / 10) % 10;
+          hundreds = (num / 100) % 10;
           cout << "The hundreds place contains " << hundreds << endl;
-          thousands = (num / 100) % 10;
+          thousands = (num / 1000) % 10;
           cout << "The ones thousands contains " << thousands << endl;
           tenThousands = num / 10000;
           cout << "The ten thousands place contains " << tenThousands << endl;
