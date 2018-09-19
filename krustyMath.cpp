@@ -30,6 +30,8 @@ int main()
   // Minimum and Maximum values for base
   const int MIN_BASE = 2;
   const int MAX_BASE = 9;
+  // Using to check if num is a valid base *base* number.
+  bool validBase = false;
   // Loop Controls for variable assigning attempts
   int a = 0;
   const int MAX_ATTEMPTS = 3;
@@ -81,9 +83,6 @@ int main()
           cout << "Enter a value n: ";
           cin >> base;
           a++;
-          cout << "Base is valid: " << (base >= MIN_BASE
-                   && base <= MAX_BASE) << endl;
-          cout << "If Base is valid, terminate assignment loop and return to the menu." << endl;
         }
         while (!(base >= MIN_BASE
                  && base <= MAX_BASE)
@@ -99,66 +98,116 @@ int main()
       case 3:
         // Verify x is a valid number of base n by
         // Checking n to all digits of x
-        cout << num << endl;
-        if (numDigits == 1)
+        // TODO: Execute only if num and base have been initialized
+        if (num != -1
+            && base != 0)
         {
-          cout << num << endl;
-          if (base > num)
+          if (numDigits == 1)
           {
-            cout << "The number " << num;
-            cout << "is a valid number of base " << base << endl;
+            if (base > num)
+            {
+              validBase = true;
+              cout << "The number " << num;
+              cout << " is a valid number of base " << base << endl;
+            }
+            else
+            {
+              cout << "The number " << num;
+              cout << " is NOT a valid number of base " << base << endl;
+            }
           }
-          else
+          else if (numDigits == 2)
           {
-            cout << "The number " << num;
-            cout << "is NOT a valid number of base " << base << endl;
+            ones = num % 10;
+            tens = num / 10;
+            if (base > ones
+                && base > tens)
+            {
+              validBase = true;
+              cout << "The number " << num;
+              cout << " is a valid number of base " << base << endl;
+            }
+            else
+            {
+              cout << "The number " << num;
+              cout << " is NOT a valid number of base " << base << endl;
+            }
+          }
+          else if (numDigits == 3)
+          {
+            ones = num % 10;
+            tens = (num / 10) % 10;
+            hundreds = num / 100;
+            if (base > ones
+                && base > tens
+                && base > hundreds)
+            {
+              validBase = true;
+              cout << "The number " << num;
+              cout << " is a valid number of base " << base << endl;
+            }
+            else
+            {
+              cout << "The number " << num;
+              cout << " is NOT a valid number of base " << base << endl;
+            }
+          }
+          else if (numDigits == 4)
+          {
+            ones = num % 10;
+            tens = (num / 10) % 10;
+            hundreds = (num / 100) % 10;
+            thousands = num / 1000;
+            if (base > ones
+                && base > tens
+                && base > hundreds
+                && base > thousands)
+            {
+              validBase = true;
+              cout << "The number " << num;
+              cout << " is a valid number of base " << base << endl;
+            }
+            else
+            {
+              cout << "The number " << num;
+              cout << " is NOT a valid number of base " << base << endl;
+            }
+          }
+          else if (numDigits == 5)
+          {
+            ones = num % 10;
+            tens = (num / 10);
+            hundreds = (num / 100) % 10;
+            thousands = (num / 1000) % 10;
+            tenThousands = num / 10000;
+            if (base > ones
+                && base > tens
+                && base > hundreds
+                && base > thousands
+                && base > tenThousands)
+              {
+                validBase = true;
+                cout << "The number " << num;
+                cout << " is a valid number of base " << base << endl;
+              }
+            else
+            {
+              cout << "The number " << num;
+              cout << " is NOT a valid number of base " << base << endl;
+            }
           }
         }
-        else if (numDigits == 2)
+        else
         {
-          cout << num << endl;
-          ones = num % 10;
-          cout << "The ones place contains " << ones << endl;
-          tens = num / 10;
-          cout << "The tens place contains " << tens << endl;
+          cout << "You have not done options 1 and 2";
+          cout << "to assign" << endl;
+          cout << "values to x and n.";
+          cout << "To do option 3, please do so." << endl;
         }
-        else if (numDigits == 3)
-        {
-          cout << num << endl;
-          ones = num % 10;
-          cout << "The ones place contains " << ones << endl;
-          tens = (num / 10) % 10;
-          cout << "The tens place contains " << tens << endl;
-          hundreds = num / 100;
-          cout << "The hundreds place contains " << hundreds << endl;
-        }
-        else if (numDigits == 4)
-        {
-          ones = num % 10;
-          cout << "The ones place contains " << ones << endl;
-          tens = (num / 10) % 10;
-          cout << "The tens place contains " << tens << endl;
-          hundreds = (num / 100) % 10;
-          cout << "The hundreds place contains " << hundreds << endl;
-          thousands = num / 1000;
-          cout << "The ones thousands contains " << thousands << endl;
-        }
-        else if (numDigits == 5)
-        {
-          ones = num % 10;
-          cout << "The ones place contains " << ones << endl;
-          tens = (num / 10) % 10;
-          cout << "The tens place contains " << tens << endl;
-          hundreds = (num / 100) % 10;
-          cout << "The hundreds place contains " << hundreds << endl;
-          thousands = (num / 1000) % 10;
-          cout << "The ones thousands contains " << thousands << endl;
-          tenThousands = num / 10000;
-          cout << "The ten thousands place contains " << tenThousands << endl;
-        }
+
         break;
       case 4:
-        cout << "In standard base 10, x is " << num << endl;
+        //
         break;
     }
   }
