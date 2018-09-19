@@ -28,7 +28,7 @@ int main()
   const int MIN_NUM = 0;
   const int MAX_NUM = 99999;
   // Minimum and Maximum values for base
-  const int MIN_BASE = 10;
+  const int MIN_BASE = 9;
   const int MAX_BASE = 2;
   // Loop Controls for variable assigning attempts
   int a = 0;
@@ -41,6 +41,7 @@ int main()
     cout << "3: Verify x is a valid base n number" << endl;
     cout << "4: Convert x to base 10" << endl;
     cout << "5: Quit" << endl;
+    a = 0;
     cin >> option;
     switch (option)
     {
@@ -64,7 +65,6 @@ int main()
           numDigits = 4;
         else if (num >= 10000 && num < 100000)
           numDigits = 5;
-        a = 0;
         cout << "x is now equal to " << num << endl;
         break;
       case 2:
@@ -77,7 +77,6 @@ int main()
         while (!(base >= MIN_BASE
                 && base <= MAX_BASE)
                 && a < MAX_ATTEMPTS);
-        a = 0;
         cout << "n is now equal to " << base << endl;
         break;
       case 3:
@@ -146,6 +145,5 @@ int main()
     }
   }
   while (option != 5);
-  cout << "Ware wa kan gun wagateki wa" << endl;
   return 0;
 }
