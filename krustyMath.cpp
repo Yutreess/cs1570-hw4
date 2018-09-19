@@ -15,8 +15,8 @@ using namespace std;
 int main()
 {
   int option;
-  int num;
-  int base;
+  int num = -1;      // Initializing as an invalid value
+  int base = 0;
   int numDigits;     // Numer of digits in num
   // Value of num at digit 1 (1s), 2 (10s), 3 (100s), etc.
   int ones;
@@ -28,8 +28,8 @@ int main()
   const int MIN_NUM = 0;
   const int MAX_NUM = 99999;
   // Minimum and Maximum values for base
-  const int MIN_BASE = 9;
-  const int MAX_BASE = 2;
+  const int MIN_BASE = 2;
+  const int MAX_BASE = 9;
   // Loop Controls for variable assigning attempts
   int a = 0;
   const int MAX_ATTEMPTS = 3;
@@ -55,17 +55,25 @@ int main()
         while (!(num >= MIN_NUM
                 && num <= MAX_NUM)
                 && a < MAX_ATTEMPTS);
-        if (num >= 0 && num < 10)
-          numDigits = 1;
-        else if (num >= 10 && num < 100)
-          numDigits = 2;
-        else if (num >= 100 && num < 1000)
-          numDigits = 3;
-        else if (num >= 1000 && num < 10000)
-          numDigits = 4;
-        else if (num >= 10000 && num < 100000)
-          numDigits = 5;
-        cout << "x is now equal to " << num << endl;
+        if (!(num >= MIN_NUM && num <= MAX_NUM))
+        {
+          num = -1;
+          cout << "Invalid x Values, try again." << endl;
+        }
+        else
+        {
+          if (num >= 0 && num < 10)
+            numDigits = 1;
+          else if (num >= 10 && num < 100)
+            numDigits = 2;
+          else if (num >= 100 && num < 1000)
+            numDigits = 3;
+          else if (num >= 1000 && num < 10000)
+            numDigits = 4;
+          else if (num >= 10000 && num < 100000)
+            numDigits = 5;
+          cout << "x is now equal to " << num << endl;
+        }
         break;
       case 2:
         do
@@ -73,11 +81,20 @@ int main()
           cout << "Enter a value n: ";
           cin >> base;
           a++;
+          cout << "Base is valid: " << (base >= MIN_BASE
+                   && base <= MAX_BASE) << endl;
+          cout << "If Base is valid, terminate assignment loop and return to the menu." << endl;
         }
         while (!(base >= MIN_BASE
-                && base <= MAX_BASE)
-                && a < MAX_ATTEMPTS);
-        cout << "n is now equal to " << base << endl;
+                 && base <= MAX_BASE)
+                 && a < MAX_ATTEMPTS);
+        if (!(base >= MIN_BASE && base <= MAX_BASE))
+        {
+          base = 0;
+          cout << "Invalid n values, try again." << endl;
+        }
+        else
+          cout << "n is now equal to " << base << endl;
         break;
       case 3:
         // Verify x is a valid number of base n by
