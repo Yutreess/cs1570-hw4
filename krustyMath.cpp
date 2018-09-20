@@ -103,89 +103,86 @@ int main()
         if (num != -1
             && base != 0)
         {
-          if (numDigits == 1)
+          switch (numDigits)
           {
-            if (base > num)
-            {
-              validBase = true;
-              cout << "The number " << num;
-              cout << " is a valid number of base " << base << endl;
-            }
-            else
-            {
-              cout << "The number " << num;
-              cout << " is NOT a valid number of base " << base << endl;
-            }
-          }
-          else if (numDigits == 2)
-          {
-            ones = num % 10;
-            tens = num / 10;
-            if (base > ones
-                && base > tens)
-            {
-              validBase = true;
-              cout << "The number " << num;
-              cout << " is a valid number of base " << base << endl;
-            }
-            else
-            {
-              cout << "The number " << num;
-              cout << " is NOT a valid number of base " << base << endl;
-            }
-          }
-          else if (numDigits == 3)
-          {
-            ones = num % 10;
-            tens = (num / 10) % 10;
-            hundreds = num / 100;
-            if (base > ones
-                && base > tens
-                && base > hundreds)
-            {
-              validBase = true;
-              cout << "The number " << num;
-              cout << " is a valid number of base " << base << endl;
-            }
-            else
-            {
-              cout << "The number " << num;
-              cout << " is NOT a valid number of base " << base << endl;
-            }
-          }
-          else if (numDigits == 4)
-          {
-            ones = num % 10;
-            tens = (num / 10) % 10;
-            hundreds = (num / 100) % 10;
-            thousands = num / 1000;
-            if (base > ones
-                && base > tens
-                && base > hundreds
-                && base > thousands)
-            {
-              validBase = true;
-              cout << "The number " << num;
-              cout << " is a valid number of base " << base << endl;
-            }
-            else
-            {
-              cout << "The number " << num;
-              cout << " is NOT a valid number of base " << base << endl;
-            }
-          }
-          else if (numDigits == 5)
-          {
-            ones = num % 10;
-            tens = (num / 10);
-            hundreds = (num / 100) % 10;
-            thousands = (num / 1000) % 10;
-            tenThousands = num / 10000;
-            if (base > ones
-                && base > tens
-                && base > hundreds
-                && base > thousands
-                && base > tenThousands)
+            case 1:
+              if (base > num)
+              {
+                validBase = true;
+                cout << "The number " << num;
+                cout << " is a valid number of base " << base << endl;
+              }
+              else
+              {
+                cout << "The number " << num;
+                cout << " is NOT a valid number of base " << base << endl;
+              }
+              break;
+            case 2:
+              ones = num % 10;
+              tens = num / 10;
+              if (base > ones
+                  && base > tens)
+              {
+                validBase = true;
+                cout << "The number " << num;
+                cout << " is a valid number of base " << base << endl;
+              }
+              else
+              {
+                cout << "The number " << num;
+                cout << " is NOT a valid number of base " << base << endl;
+              }
+              break;
+            case 3:
+              ones = num % 10;
+              tens = (num / 10) % 10;
+              hundreds = num / 100;
+              if (base > ones
+                  && base > tens
+                  && base > hundreds)
+              {
+                validBase = true;
+                cout << "The number " << num;
+                cout << " is a valid number of base " << base << endl;
+              }
+              else
+              {
+                cout << "The number " << num;
+                cout << " is NOT a valid number of base " << base << endl;
+              }
+              break;
+            case 4:
+              ones = num % 10;
+              tens = (num / 10) % 10;
+              hundreds = (num / 100) % 10;
+              thousands = num / 1000;
+              if (base > ones
+                  && base > tens
+                  && base > hundreds
+                  && base > thousands)
+              {
+                validBase = true;
+                cout << "The number " << num;
+                cout << " is a valid number of base " << base << endl;
+              }
+              else
+              {
+                cout << "The number " << num;
+                cout << " is NOT a valid number of base " << base << endl;
+              }
+              break;
+            case 5:
+              ones = num % 10;
+              tens = (num / 10);
+              hundreds = (num / 100) % 10;
+              thousands = (num / 1000) % 10;
+              tenThousands = num / 10000;
+              if (base > ones
+                  && base > tens
+                  && base > hundreds
+                  && base > thousands
+                  && base > tenThousands)
               {
                 validBase = true;
                 cout << "The number " << num;
@@ -196,6 +193,7 @@ int main()
               cout << "The number " << num;
               cout << " is NOT a valid number of base " << base << endl;
             }
+              break;
           }
         }
         else
