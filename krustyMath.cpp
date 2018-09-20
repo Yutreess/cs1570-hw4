@@ -18,6 +18,7 @@ int main()
   int num = -1;      // Initializing as an invalid value
   int base = 0;
   int numDigits;     // Numer of digits in num
+  int convertedNum = 4;
   // Value of num at digit 1 (1s), 2 (10s), 3 (100s), etc.
   int ones;
   int tens;
@@ -199,15 +200,52 @@ int main()
         }
         else
         {
-          cout << "You have not done options 1 and 2";
+          cout << "You have not done options 1 and 2 ";
           cout << "to assign" << endl;
-          cout << "values to x and n.";
-          cout << "To do option 3, please do so." << endl;
+          cout << "values to x and n. ";
+          cout << "to do option 3, please do so." << endl;
         }
-
         break;
       case 4:
-        //
+        if (!(validBase))
+        {
+          cout << "Invalid Option." << endl;
+          cout << "x and n are not compatible vales." << endl;
+          cout << "Please repeat options 1 and 2";
+          cout << " with verfied compatability with option 3." << endl;
+        }
+        else
+        {
+          switch (numDigits)
+          {
+            case 1:
+              convertedNum = num;
+              break;
+            case 2:
+              convertedNum = (tens * pow(base, 1))
+                              + (ones * pow(base, 0));
+              break;
+            case 3:
+              convertedNum = (hundreds * pow(base , 2))
+                             + (tens * pow(base , 1))
+                             + (ones * pow(base, 0));
+              break;
+            case 4:
+            convertedNum = (thousands * pow(base, 3))
+                           + (hundreds * pow(base, 2))
+                           + (tens * pow(base, 1))
+                           + (ones * pow(base, 0));
+              break;
+            case 5:
+            convertedNum = (tenThousands * pow(base, 4))
+                           + (thousands * pow(base, 3))
+                           + (hundreds * pow(base, 2))
+                           + (tens * pow(base, 1))
+                           + (ones * pow(base, 0));
+              break;
+          }
+          cout << num << " expressed in base 10 is " << convertedNum << endl;
+        }
         break;
     }
   }
