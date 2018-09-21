@@ -12,8 +12,17 @@
 #include <cmath>
 using namespace std;
 
+// TODO: Add proper signoff @ Line 253
+
 int main()
 {
+  // Minimum and Maximum values permitted for num
+  const int MIN_NUM = 0;
+  const int MAX_NUM = 99999;
+  // Minimum and Maximum values for base
+  const int MIN_BASE = 2;
+  const int MAX_BASE = 9;
+  const int MAX_ATTEMPTS = 3;
   int option;
   int num = -1;      // Initializing as an invalid value
   int base = 0;
@@ -25,17 +34,10 @@ int main()
   int hundreds;
   int thousands;
   int tenThousands;
-  // Minimum and Maximum values permitted for num
-  const int MIN_NUM = 0;
-  const int MAX_NUM = 99999;
-  // Minimum and Maximum values for base
-  const int MIN_BASE = 2;
-  const int MAX_BASE = 9;
   // Using to check if num is a valid base *base* number.
   bool validBase = false;
   // Loop Controls for variable assigning attempts
   int a = 0;
-  const int MAX_ATTEMPTS = 3;
   do
   {
     cout << "-----OPTIONS-----" << endl;
