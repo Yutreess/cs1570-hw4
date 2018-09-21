@@ -26,7 +26,7 @@ int main()
   int option;
   int num = -1;      // Initializing as an invalid value
   int base = 0;
-  int numDigits;     // Numer of digits in num
+  int numDigits;     // Number of digits in num
   int convertedNum = 4;
   // Value of num at digit 1 (1s), 2 (10s), 3 (100s), etc.
   int ones;
@@ -101,7 +101,6 @@ int main()
       case 3:
         // Verify x is a valid number of base n by
         // Checking n to all digits of x
-        // TODO: Execute only if num and base have been initialized
         if (num != -1
             && base != 0)
         {
@@ -250,6 +249,6 @@ int main()
     }
   }
   while (option != 5);
-  cout << "This is a signoff statement to edit later on." << endl;
+  cout << "Goodbye." << endl;
   return 0;
 }
