@@ -23,6 +23,7 @@ int main()
   const int MIN_BASE = 2;
   const int MAX_BASE = 9;
   const int MAX_ATTEMPTS = 3;
+
   int option;
   int num = -1;      // Initializing as an invalid value
   int base = 0;
@@ -36,8 +37,11 @@ int main()
   int tenThousands;
   // Using to check if num is a valid base *base* number.
   bool validBase = false;
+  bool have_valid_x = false;
+  bool have_valid_base = false;
   // Loop Controls for variable assigning attempts
-  int a = 0;
+  int attempts = 0;
+
   do
   {
     cout << "-----OPTIONS-----" << endl;
@@ -46,8 +50,8 @@ int main()
     cout << "3: Verify x is a valid base n number" << endl;
     cout << "4: Convert x to base 10" << endl;
     cout << "5: Quit" << endl;
-    a = 0;
     cin >> option;
+    attempts = 0;			//reset attempt counter
     switch (option)
     {
       case 1:
@@ -55,18 +59,19 @@ int main()
         {
           cout << "Enter a value for x: ";
           cin >> num;
-          a++;
+          attempts++;
         }
         while (!(num >= MIN_NUM
                 && num <= MAX_NUM)
-                && a < MAX_ATTEMPTS);
+                && attempts < MAX_ATTEMPTS);
         if (!(num >= MIN_NUM && num <= MAX_NUM))
         {
-          num = -1;
+          have_valid_x = false;
           cout << "Invalid x Values, try again." << endl;
         }
         else
         {
+          have_valid_x = true;
           if (num >= 0 && num < 10)
             numDigits = 1;
           else if (num >= 10 && num < 100)
@@ -80,31 +85,43 @@ int main()
           cout << "x is now equal to " << num << endl;
         }
         break;
+
       case 2:
         do
         {
           cout << "Enter a value n: ";
           cin >> base;
-          a++;
+          attempts++;
         }
         while (!(base >= MIN_BASE
                  && base <= MAX_BASE)
                  && a < MAX_ATTEMPTS);
         if (!(base >= MIN_BASE && base <= MAX_BASE))
         {
-          base = 0;
+          have_valid_base = false;
           cout << "Invalid n values, try again." << endl;
         }
-        else
+        else				//gotten good base input
+        {
+          have_valid_base = true;
           cout << "n is now equal to " << base << endl;
+        }
         break;
+
       case 3:
         // Verify x is a valid number of base n by
         // Checking n to all digits of x
-        if (num != -1
-            && base != 0)
+        if (have_valid_x && have_valid_base)		//good inputs
         {
-          switch (numDigits)
+
+
+
+
+
+
+
+
+/*          switch (numDigits)
           {
             case 1:
               if (base > num)
@@ -119,7 +136,8 @@ int main()
                 cout << " is NOT a valid number of base " << base << endl;
               }
               break;
-            case 2:
+
+	    case 2:
               ones = num % 10;
               tens = num / 10;
               if (base > ones
@@ -189,7 +207,7 @@ int main()
                 cout << "The number " << num;
                 cout << " is a valid number of base " << base << endl;
               }
-            else
+  */          else
             {
               cout << "The number " << num;
               cout << " is NOT a valid number of base " << base << endl;
@@ -205,6 +223,7 @@ int main()
           cout << "to do option 3, please do so." << endl;
         }
         break;
+
       case 4:
         if (!(validBase))
         {
